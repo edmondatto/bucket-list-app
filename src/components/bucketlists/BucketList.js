@@ -1,14 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import BucketListItemsCounter from './BucketListItemsCounter';
-import BucketListName from './BucketListName';
 import BucketListDates from './BucketListDates';
 
 const BucketList = props =>
   <div>
     <div className="col-md-3 card card-1">
-      <BucketListName />
+      <h5 className="bucket-list-heading">{ props.name }</h5>
 
-      <BucketListDates />
+      <BucketListDates dateCreated={ props.date_created } dateUpdated={ props.date_modified }/>
 
       <BucketListItemsCounter />
 
@@ -26,5 +26,11 @@ const BucketList = props =>
       </div>
     </div>
   </div>;
+
+BucketList.propTypes = {
+  name: PropTypes.string.isRequired,
+  date_created: PropTypes.string.isRequired,
+  date_modified: PropTypes.string.isRequired,
+};
 
 export default BucketList;

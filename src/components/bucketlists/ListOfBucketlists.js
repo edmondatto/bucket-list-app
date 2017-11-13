@@ -1,5 +1,5 @@
 import React from 'react';
-import BucketList from "./BucketLists/BucketList";
+import BucketList from "./BucketList";
 import PropTypes from 'prop-types';
 
 const ListOfBucketlists = (props) =>

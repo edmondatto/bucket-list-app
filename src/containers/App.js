@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
-import Header from './components/Header';
-import SearchArea from './components/SearchArea';
-import ListOfBucketlists from "./components/ListOfBucketlists";
-import Footer from './components/Footer';
+import '../App.css';
+import Header from '../components/Header';
+import SearchArea from '../components/SearchArea';
+import ListOfBucketlists from "../components/bucketlists/ListOfBucketlists";
+import Footer from '../components/Footer';
 
 class App extends Component {
   state = {

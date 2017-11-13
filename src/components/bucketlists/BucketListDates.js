@@ -1,11 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const BucketListDates = () =>
+const BucketListDates = props =>
   <div>
     <p className="card-dates">
-      <span>CREATED:</span> 12/12/2012 09:09:09H
-      <span>UPDATED:</span> 12/12/2012 09:09:09H
+      <span>CREATED:</span> { props.dateCreated }
+      <span>UPDATED:</span> { props.dateUpdated }
     </p>
   </div>;
+
+  BucketListDates.propTypes = {
+    dateCreated: PropTypes.string.isRequired,
+    dateUpdated: PropTypes.string.isRequired,
+  };
 
 export default BucketListDates;
