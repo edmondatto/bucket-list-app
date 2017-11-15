@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://johnzbucketlist-staging.herokuapp.com/api/v1/';
