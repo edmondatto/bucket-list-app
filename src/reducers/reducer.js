@@ -1,15 +1,23 @@
 import * as BucketlistActionTypes from '../actiontypes/bucketlist';
-import axios from 'axios';
-import * as CONSTANTS from '../utilities/constants';
 
 const initialState = {
-  buckets: [],
+  buckets: {
+    buckets: []
+  },
   isFetching: false,
 };
 
 export default function BucketListReducer (state=initialState, action) {
-  switch (action) {
-    case action.type === BucketlistActionTypes.BUCKETLISTS_FETCH:
-      axios.get(`CONSTANTS.BASE_URL$()`)
+  switch (action.type) {
+    case BucketlistActionTypes.BUCKETLISTS_FETCH_SUCCESS:
+      return{
+        ...state,
+        buckets: {
+          buckets: action.data.buckets
+        }
+      };
+
+    default:
+      return state
   }
 }
