@@ -5,34 +5,45 @@ import SearchArea from '../components/SearchArea';
 import ListOfBucketlists from "../components/bucketlists/ListOfBucketlists";
 import Footer from '../components/Footer';
 import {connect} from "react-redux";
+import LoginForm from "../components/auth/login";
 
 class App extends Component {
 
   render() {
 
-    const { dispatch, buckets } = this.props;
+    const { dispatch, buckets, isAuthenticated } = this.props;
 
     return (
       <div>
-        <Header/>
-        <div className="container-fluid" id="main-container">
-          <SearchArea />
-          <ListOfBucketlists
+        {isAuthenticated
+          ?
+          <div>
+            <Header/>
+            <div className="container-fluid" id="main-container">
+              <SearchArea />
+              <ListOfBucketlists
+                dispatch={dispatch}
+                buckets={buckets}
+              />
+            </div>
+          </div>
+          :
+          <LoginForm
             dispatch={dispatch}
-            buckets={buckets}
+            isAuthenticated={isAuthenticated}
           />
-        </div>
-        <Footer/>
+          }
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  const { buckets, isFetching } = state;
+  const { buckets, isFetching, isAuthenticated } = state;
   return {
     buckets,
-    isFetching
+    isFetching,
+    isAuthenticated
   }
 };
 
